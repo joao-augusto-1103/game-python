@@ -7,7 +7,7 @@ p1aim = vector(4, 0)
 p1body = set()
 
 p2xy = vector(200, 0)
-p2aim = vector(-0, 0)
+p2aim = vector(-4, 0)
 p2body = set()
 
 p3xy = vector(0, 200)
@@ -95,4 +95,3 @@ done()
 #Colocou colisão entre todos os players
 #Colisão no próprio player
 #Ajuste de velocidade
-
