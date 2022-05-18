@@ -96,7 +96,7 @@ done()
 #Colisão no próprio player
 #Ajuste de velocidade
 
-#--------------------------------------#
+#------------------CODIGO ATULIZADO ABAIXO--------------------#
 
 from turtle import *
 from freegames import square, vector
@@ -118,18 +118,20 @@ def inside(head):
     """Return True if head inside screen."""
     return -300 < head.x < 300 and -300 < head.y < 300
     
-#Timer para começar o jogo: <- João Augsuto
+#Timer para começar o jogo:
+#Conta um tempo para iniciar o jogo.
 print('T R O N')
 sleep(2)
 print('STARTING GAME...')
 sleep(2)
 print("3")
-sleep(1)
+sleep(1)  
 print("2")
 sleep(1)
 print("1")
 sleep(2)
 print("GO!")
+
 
 def draw():
     """Advance players and draw game."""
@@ -142,8 +144,12 @@ def draw():
     p3xy.move(p3aim)
     p3head = p3xy.copy()
 
+
+    #Condisões de Colisão:
+    #Consilão dos players entre eles (exemplo: player1 bateu em player2):
     if not inside(p1head) or p1head in p2body:
-        print('Player blue and green wins!')        
+        print('Player blue and green wins!')
+        
         return 
 
     if not inside(p1head) or p1head in p3body:
@@ -166,7 +172,7 @@ def draw():
         print('Player red and blue wins!')
         return 
 
-    #Colisão do player entre ele mesmo:
+    #Colisão do player entre ele mesmo (exemplo: player1 bateu em player1):
     if not inside(p1head) or p1head in p1body:
         print('Player blue and green wins!')
         return 
@@ -183,13 +189,16 @@ def draw():
     p2body.add(p2head)
     p3body.add(p3head)
 
+    #Função para definir o tamanho, cor, velocidade 
+    #de "desenho"(ontimer) dos players:
     square(p1xy.x, p1xy.y, 3, 'red')
     square(p2xy.x, p2xy.y, 3, 'blue')
     square(p3xy.x, p3xy.y, 3, 'green')
     update()
     ontimer(draw, 20)
 
-
+#Função para definir as teclas que serão usadas
+#para controlar os players
 setup(600, 600, 370, 0)
 hideturtle()
 tracer(False)
@@ -198,15 +207,16 @@ onkey(lambda: p1aim.rotate(90), 'a')
 onkey(lambda: p1aim.rotate(-90), 's')
 onkey(lambda: p2aim.rotate(90), 'g')
 onkey(lambda: p2aim.rotate(-90), 'h')
-#onkey(lambda: p3aim.rotate(90), '5')
-#onkey(lambda: p3aim.rotate(-90), '6')
+onkey(lambda: p3aim.rotate(90), '5')
+onkey(lambda: p3aim.rotate(-90), '6')
 draw()
 done()
 
 #Criação do Player 3 - dar a opção de escolher a cor do personagem ou quantos jogadores deseja jogar.
 
-#Colocou colisão entre todos os players e no próprio player - falha encontrada
+#Colocou colisão entre todos os players e no próprio player - falha encontrada.
 
-#Ajuste de velocidade - ajustar para ter mudança
+#Ajuste de velocidade - ajustar para o usuario escolher ou trocar por mudar a cor do player.
 
-#Adicionado um Temporizador para começar o jogo - Ok
+#Adicionado um Temporizador para começar o jogo.
+
