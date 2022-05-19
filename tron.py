@@ -102,6 +102,7 @@ from turtle import *
 from freegames import square, vector
 from time import sleep
 
+#Função para definir corpo do player
 p1xy = vector(-200, 0)
 p1aim = vector(4, 0)
 p1body = set()
@@ -114,6 +115,7 @@ p3xy = vector(0, 200)
 p3aim = vector(0, -4)
 p3body = set()
 
+#função para definir a area de jogo:
 def inside(head):
     """Return True if head inside screen."""
     return -300 < head.x < 300 and -300 < head.y < 300
@@ -132,7 +134,8 @@ print("1")
 sleep(2)
 print("GO!")
 
-
+#Função para Definir o movimento e para que lados
+#os players irão se mexer:
 def draw():
     """Advance players and draw game."""
     p1xy.move(p1aim)
@@ -185,6 +188,8 @@ def draw():
         print('Player red and blue wins!')
         return 
 
+    #Função para adicionar a "cabeça" dos players
+    #ao corpo:
     p1body.add(p1head)
     p2body.add(p2head)
     p3body.add(p3head)
@@ -219,4 +224,5 @@ done()
 #Ajuste de velocidade - ajustar para o usuario escolher ou trocar por mudar a cor do player.
 
 #Adicionado um Temporizador para começar o jogo.
+
 
